@@ -34,15 +34,15 @@
       header?.classList.add('bg-white/95', 'shadow-md');
       header?.classList.remove('bg-transparent');
       
-      // Text Colors -> Dark Indigo
+      // Text Colors -> Black with visible highlight
       navLinks.forEach(link => {
         link.classList.remove('text-white', 'hover:text-soul-peach');
-        link.classList.add('text-soul-indigo', 'hover:text-soul-lavender');
+        link.classList.add('text-black', 'hover:text-soul-indigo');
       });
       
-      // Logo Color -> Dark Indigo
+      // Logo Color -> Black
       logoLink?.classList.remove('text-white');
-      logoLink?.classList.add('text-soul-indigo');
+      logoLink?.classList.add('text-black');
 
       // CTA Button updates if needed (keep indigo bg, but ensure visibility)
       // If we want it to look different on scroll, we can change it here. 
@@ -55,12 +55,12 @@
       // Text Colors -> White
       navLinks.forEach(link => {
         link.classList.add('text-white', 'hover:text-soul-peach');
-        link.classList.remove('text-soul-indigo', 'hover:text-soul-lavender');
+        link.classList.remove('text-black', 'hover:text-soul-indigo');
       });
 
       // Logo Color -> White
       logoLink?.classList.add('text-white');
-      logoLink?.classList.remove('text-soul-indigo');
+      logoLink?.classList.remove('text-black');
     }
   }
 
