@@ -1,0 +1,35 @@
+---
+---
+<header class="fixed w-full z-50 transition-all duration-300 bg-transparent hover:bg-white/90 group">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group-hover:text-soul-indigo text-white transition-colors">
+      <span class="text-2xl font-serif font-bold">Soul Udaan</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bird"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex gap-8 text-white group-hover:text-soul-indigo transition-colors">
+      <a href="#about" class="hover:text-soul-lavender font-medium">About</a>
+      <a href="#services" class="hover:text-soul-lavender font-medium">Services</a>
+      <a href="#workshops" class="hover:text-soul-lavender font-medium">Workshops</a>
+      <a href="#book" class="bg-soul-indigo text-white px-4 py-2 rounded-sm hover:bg-opacity-90 transition-all">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('bg-white/95', 'shadow-md', 'text-soul-indigo');
+      header?.classList.remove('bg-transparent', 'text-white');
+      header?.querySelectorAll('a').forEach(a => a.classList.remove('text-white'));
+      header?.querySelectorAll('a').forEach(a => a.classList.add('text-soul-indigo'));
+    } else {
+      header?.classList.remove('bg-white/95', 'shadow-md', 'text-soul-indigo');
+      header?.classList.add('bg-transparent', 'text-white');
+      header?.querySelectorAll('a').forEach(a => a.classList.add('text-white'));
+    }
+  });
+</script>
