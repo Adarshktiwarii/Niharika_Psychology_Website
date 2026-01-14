@@ -1,35 +1,73 @@
 ---
 ---
-<header class="fixed w-full z-50 transition-all duration-300 bg-transparent hover:bg-white/90 group">
-  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+<header class="fixed w-full z-50 transition-all duration-300 bg-transparent group" id="main-header">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 group-hover:text-soul-indigo text-white transition-colors">
-      <span class="text-2xl font-serif font-bold">Soul Udaan</span>
+    <a href="/" class="flex items-center gap-2 text-white transition-colors duration-300 logo-link">
+      <span class="text-2xl font-serif font-bold tracking-wide">Soul Udaan</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bird"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
     </a>
 
     <!-- Navigation -->
-    <nav class="hidden md:flex gap-8 text-white group-hover:text-soul-indigo transition-colors">
-      <a href="#about" class="hover:text-soul-lavender font-medium">About</a>
-      <a href="#services" class="hover:text-soul-lavender font-medium">Services</a>
-      <a href="#workshops" class="hover:text-soul-lavender font-medium">Workshops</a>
-      <a href="#book" class="bg-soul-indigo text-white px-4 py-2 rounded-sm hover:bg-opacity-90 transition-all">Book Now</a>
+    <nav class="hidden md:flex gap-8 items-center">
+      <a href="#about" class="nav-link text-white font-medium text-lg hover:text-soul-peach transition-colors">About</a>
+      <a href="#services" class="nav-link text-white font-medium text-lg hover:text-soul-peach transition-colors">Services</a>
+      <a href="#workshops" class="nav-link text-white font-medium text-lg hover:text-soul-peach transition-colors">Workshops</a>
+      <a href="#book" class="cta-button bg-soul-indigo text-white px-5 py-2.5 rounded-sm hover:bg-opacity-90 transition-all font-medium border border-transparent">Book Now</a>
     </nav>
   </div>
 </header>
 
 <script>
-  const header = document.querySelector('header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header?.classList.add('bg-white/95', 'shadow-md', 'text-soul-indigo');
-      header?.classList.remove('bg-transparent', 'text-white');
-      header?.querySelectorAll('a').forEach(a => a.classList.remove('text-white'));
-      header?.querySelectorAll('a').forEach(a => a.classList.add('text-soul-indigo'));
+  const header = document.getElementById('main-header');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const logoLink = document.querySelector('.logo-link');
+  const ctaButton = document.querySelector('.cta-button');
+
+  function updateHeader() {
+    // Check if scrolled OR hovering
+    const isScrolled = window.scrollY > 50;
+    const isHovered = header?.matches(':hover');
+
+    if (isScrolled || isHovered) {
+      // White Background State
+      header?.classList.add('bg-white/95', 'shadow-md');
+      header?.classList.remove('bg-transparent');
+      
+      // Text Colors -> Dark Indigo
+      navLinks.forEach(link => {
+        link.classList.remove('text-white', 'hover:text-soul-peach');
+        link.classList.add('text-soul-indigo', 'hover:text-soul-lavender');
+      });
+      
+      // Logo Color -> Dark Indigo
+      logoLink?.classList.remove('text-white');
+      logoLink?.classList.add('text-soul-indigo');
+
+      // CTA Button updates if needed (keep indigo bg, but ensure visibility)
+      // If we want it to look different on scroll, we can change it here. 
+      // Current: bg-soul-indigo text-white is good for contrast against white header.
     } else {
-      header?.classList.remove('bg-white/95', 'shadow-md', 'text-soul-indigo');
-      header?.classList.add('bg-transparent', 'text-white');
-      header?.querySelectorAll('a').forEach(a => a.classList.add('text-white'));
+      // Transparent Background State (Top of page, no hover)
+      header?.classList.remove('bg-white/95', 'shadow-md');
+      header?.classList.add('bg-transparent');
+      
+      // Text Colors -> White
+      navLinks.forEach(link => {
+        link.classList.add('text-white', 'hover:text-soul-peach');
+        link.classList.remove('text-soul-indigo', 'hover:text-soul-lavender');
+      });
+
+      // Logo Color -> White
+      logoLink?.classList.add('text-white');
+      logoLink?.classList.remove('text-soul-indigo');
     }
-  });
+  }
+
+  window.addEventListener('scroll', updateHeader);
+  header?.addEventListener('mouseenter', updateHeader);
+  header?.addEventListener('mouseleave', updateHeader);
+  
+  // Initial check
+  updateHeader();
 </script>
