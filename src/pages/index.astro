@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { motion } from "framer-motion";
+---
+
+<Layout title="Soul Udaan | Clinical Psychologist Niharika Singh">
+  <main class="overflow-x-hidden">
+    <!-- Hero Section (Parallax) -->
+    <section class="relative h-screen flex items-center justify-center parallax" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80');">
+      <div class="absolute inset-0 bg-black/20"></div>
+      <div class="relative z-10 text-center text-white px-4">
+        <h1 class="text-5xl md:text-7xl font-serif mb-6 drop-shadow-lg">Because Every Soul Deserves to Soar</h1>
+        <p class="text-xl md:text-2xl mb-8 font-light">Clinical Psychology & Psychotherapy</p>
+        <a href="#book" class="inline-block border-2 border-white px-8 py-3 text-lg hover:bg-white hover:text-soul-indigo transition-colors duration-300">
+          Begin Your Journey
+        </a>
+      </div>
+    </section>
+
+    <!-- Introduction (Cards Layout) -->
+    <section class="py-20 px-4 -mt-20 relative z-20">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { title: "Experience", desc: "3+ Years / 300+ Clients", icon: "🌱" },
+          { title: "Expertise", desc: "MPhil Clinical Psychology", icon: "🎓" },
+          { title: "Approach", desc: "Evidence-Based & Non-Judgmental", icon: "🤝" }
+        ].map(card => (
+          <div class="bg-white/90 backdrop-blur p-8 shadow-lg rounded-sm text-center transform hover:-translate-y-2 transition-transform duration-300">
+            <div class="text-4xl mb-4">{card.icon}</div>
+            <h3 class="text-2xl font-serif text-soul-indigo mb-2">{card.title}</h3>
+            <p class="text-gray-600">{card.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="py-20 bg-soul-cream">
+      <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+        <div class="flex-1">
+          <div class="aspect-[3/4] bg-gray-200 rounded-sm overflow-hidden relative shadow-xl max-w-sm mx-auto">
+             <!-- Placeholder for Niharika's photo -->
+             <div class="absolute inset-0 flex items-center justify-center text-gray-400 bg-gray-100">
+               Photo of Niharika
+             </div>
+          </div>
+        </div>
+        <div class="flex-1 space-y-6">
+          <h2 class="text-4xl font-serif text-soul-indigo">Hello, I am Niharika</h2>
+          <p class="text-lg leading-relaxed text-gray-700">
+            Welcome to a safe space where healing meets the horizon. My philosophy is grounded in the belief that within every individual lies the capacity to rise above challenges. Through evidence-based practices and a compassionate, non-judgmental approach, I help you navigate life's complexities to learn, heal, and soar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-soul-indigo text-white py-12">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <h3 class="text-2xl font-serif mb-4">Soul Udaan</h3>
+        <p class="mb-4">Because Every Soul Deserves to Soar</p>
+        <a href="mailto:souludaan@gmail.com" class="text-soul-lavender hover:text-white transition-colors">
+          souludaan@gmail.com
+        </a>
+      </div>
+    </footer>
+  </main>
+</Layout>
