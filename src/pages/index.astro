@@ -26,7 +26,7 @@ const heroImage = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?
       
       <div class="relative z-10 text-center text-white px-4">
         <div class="mb-6 reveal">
-          <img src="/logo.svg" alt="BrewYourBeing" class="h-20 w-20 mx-auto mb-4 invert" />
+          <img src="/Logotransparent.png" alt="BrewYourBeing" class="h-24 w-24 mx-auto mb-4 invert object-contain" />
         </div>
         <h1 class="text-5xl md:text-7xl font-serif mb-6 drop-shadow-lg tracking-wide reveal">BrewYourBeing</h1>
         <p class="text-xl md:text-2xl mb-10 font-light tracking-wider reveal reveal-delay-100">Pouring Calm Into Your Life</p>
@@ -99,16 +99,26 @@ const heroImage = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?
     <!-- Ticker -->
     <Ticker />
 
-    <!-- Workshops Section -->
-    <section id="workshops" class="py-24 bg-brew-cream text-center">
-      <div class="max-w-4xl mx-auto px-4 reveal">
-        <h2 class="text-4xl font-serif text-brew-brown mb-8">Workshops & Events</h2>
-        <div class="bg-white p-12 shadow-lg border border-brew-tan/30 relative overflow-hidden group">
-          <div class="absolute inset-0 bg-brew-tan/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-          <p class="text-xl text-gray-500 mb-6 font-serif italic relative z-10">Upcoming workshops will be announced here.</p>
-          <button class="relative z-10 px-8 py-3 bg-brew-tan/30 text-brew-brown hover:bg-brew-tan/50 transition-colors rounded-full font-medium tracking-wide">
-            Stay Tuned
-          </button>
+    <!-- Contact Info Section -->
+    <section id="contact" class="py-24 bg-brew-cream">
+      <div class="max-w-5xl mx-auto px-4 reveal">
+        <h2 class="text-4xl font-serif text-brew-brown mb-12 text-center">Get In Touch</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 shadow-md text-center rounded-sm hover:-translate-y-1 transition-transform duration-300">
+            <div class="text-4xl mb-4">✉️</div>
+            <h3 class="text-xl font-serif text-brew-brown mb-2">Email</h3>
+            <a href="mailto:brewyourbeing@gmail.com" class="text-brew-light hover:text-brew-brown transition-colors">brewyourbeing@gmail.com</a>
+          </div>
+          <div class="bg-white p-8 shadow-md text-center rounded-sm hover:-translate-y-1 transition-transform duration-300">
+            <div class="text-4xl mb-4">📞</div>
+            <h3 class="text-xl font-serif text-brew-brown mb-2">Phone</h3>
+            <a href="tel:+916263121929" class="text-brew-light hover:text-brew-brown transition-colors">+91 6263-121929</a>
+          </div>
+          <div class="bg-white p-8 shadow-md text-center rounded-sm hover:-translate-y-1 transition-transform duration-300">
+            <div class="text-4xl mb-4">📍</div>
+            <h3 class="text-xl font-serif text-brew-brown mb-2">Location</h3>
+            <p class="text-gray-600 text-sm">Rang Mahal Water Park, Vinayak Khedi Road, Guna (M.P) - 473001</p>
+          </div>
         </div>
       </div>
     </section>

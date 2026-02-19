@@ -7,7 +7,9 @@ export default function BookingForm() {
     phone: '',
     age: '',
     gender: '',
+    occupation: '',
     sessionType: '',
+    mode: '',
     preferredDate: '',
     preferredTime: '',
     previousTherapy: '',
@@ -26,7 +28,6 @@ export default function BookingForm() {
     e.preventDefault();
     setSubmitting(true);
     
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1200));
     
     setSubmitting(false);
@@ -45,7 +46,7 @@ export default function BookingForm() {
           I will review your details and get back to you within 24-48 hours to confirm your session.
         </p>
         <button
-          onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', phone: '', age: '', gender: '', sessionType: '', preferredDate: '', preferredTime: '', previousTherapy: '', concerns: '', referralSource: '' }); }}
+          onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', phone: '', age: '', gender: '', occupation: '', sessionType: '', mode: '', preferredDate: '', preferredTime: '', previousTherapy: '', concerns: '', referralSource: '' }); }}
           className="mt-8 px-8 py-3 bg-brew-brown text-white rounded-sm hover:bg-brew-dark transition-colors font-medium"
         >
           Book Another Session
@@ -137,21 +138,52 @@ export default function BookingForm() {
       </div>
 
       <div>
-        <label htmlFor="sessionType" className={labelClasses}>Type of Session *</label>
-        <select
-          id="sessionType"
-          name="sessionType"
+        <label htmlFor="occupation" className={labelClasses}>Occupation *</label>
+        <input
+          type="text"
+          id="occupation"
+          name="occupation"
           required
-          value={formData.sessionType}
+          value={formData.occupation}
           onChange={handleChange}
+          placeholder="e.g. Student, Engineer, Homemaker, etc."
           className={inputClasses}
-        >
-          <option value="">Select the type of session</option>
-          <option value="individual">Individual Therapy</option>
-          <option value="group">Group Therapy</option>
-          <option value="couple">Couple Therapy</option>
-          <option value="assessment">Psychological Assessment</option>
-        </select>
+        />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="sessionType" className={labelClasses}>Type of Session *</label>
+          <select
+            id="sessionType"
+            name="sessionType"
+            required
+            value={formData.sessionType}
+            onChange={handleChange}
+            className={inputClasses}
+          >
+            <option value="">Select the type of session</option>
+            <option value="individual">Individual Therapy</option>
+            <option value="group">Group Therapy</option>
+            <option value="couple">Couple Therapy</option>
+            <option value="assessment">Psychological Assessment</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="mode" className={labelClasses}>Mode of Session *</label>
+          <select
+            id="mode"
+            name="mode"
+            required
+            value={formData.mode}
+            onChange={handleChange}
+            className={inputClasses}
+          >
+            <option value="">Select mode</option>
+            <option value="online">Online</option>
+            <option value="offline">Offline (In-Person)</option>
+          </select>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

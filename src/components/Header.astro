@@ -1,10 +1,10 @@
 ---
 ---
 <header class="fixed w-full z-50 transition-all duration-300 bg-transparent group" id="main-header">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+  <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3 text-white transition-colors duration-300 logo-link">
-      <img src="/logo.svg" alt="BrewYourBeing Logo" class="h-10 w-10 logo-img" />
+      <img src="/Logotransparent.png" alt="BrewYourBeing Logo" class="h-12 w-12 logo-img object-contain" />
       <span class="text-2xl font-serif font-bold tracking-wide">BrewYourBeing</span>
     </a>
 
@@ -12,7 +12,7 @@
     <nav class="hidden md:flex gap-8 items-center">
       <a href="#about" class="nav-link text-white font-medium text-lg hover:text-brew-tan transition-colors">About</a>
       <a href="#services" class="nav-link text-white font-medium text-lg hover:text-brew-tan transition-colors">Services</a>
-      <a href="#workshops" class="nav-link text-white font-medium text-lg hover:text-brew-tan transition-colors">Workshops</a>
+      <a href="#contact" class="nav-link text-white font-medium text-lg hover:text-brew-tan transition-colors">Contact</a>
       <a href="#book" class="cta-button bg-brew-brown text-white px-5 py-2.5 rounded-sm hover:bg-brew-dark transition-all font-medium border border-transparent">Book Now</a>
     </nav>
 
@@ -31,7 +31,7 @@
     <nav class="flex flex-col items-center gap-4 py-6">
       <a href="#about" class="mobile-nav-link text-brew-brown font-medium text-lg hover:text-brew-light transition-colors">About</a>
       <a href="#services" class="mobile-nav-link text-brew-brown font-medium text-lg hover:text-brew-light transition-colors">Services</a>
-      <a href="#workshops" class="mobile-nav-link text-brew-brown font-medium text-lg hover:text-brew-light transition-colors">Workshops</a>
+      <a href="#contact" class="mobile-nav-link text-brew-brown font-medium text-lg hover:text-brew-light transition-colors">Contact</a>
       <a href="#book" class="bg-brew-brown text-white px-6 py-2.5 rounded-sm hover:bg-brew-dark transition-all font-medium">Book Now</a>
     </nav>
   </div>
@@ -42,7 +42,6 @@
   const navLinks = document.querySelectorAll('.nav-link');
   const logoLink = document.querySelector('.logo-link');
   const logoImg = document.querySelector('.logo-img');
-  const ctaButton = document.querySelector('.cta-button');
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
