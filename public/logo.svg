@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -10 110 130" fill="#3E2723">
+  <!-- Steam wisp 1 -->
+  <path d="M42 16 C42 12, 38 8, 40 4 C42 0, 38 -4, 40 -8" 
+        fill="none" stroke="#3E2723" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+  <!-- Steam wisp 2 -->
+  <path d="M54 14 C54 10, 50 6, 52 2 C54 -2, 50 -6, 52 -8" 
+        fill="none" stroke="#3E2723" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Cup -->
+  <rect x="28" y="18" width="40" height="24" rx="4" ry="4"/>
+  <!-- Cup rim -->
+  <rect x="24" y="42" width="48" height="6" rx="3" ry="3"/>
+  <!-- Cup handle -->
+  <path d="M68 24 C78 24, 80 34, 68 38" fill="none" stroke="#3E2723" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Head profile (facing left) -->
+  <path d="
+    M24 48
+    L16 52
+    C8 56, 2 66, 4 78
+    C6 88, 14 94, 16 96
+    C12 100, 8 106, 8 110
+    L8 118
+    L90 118
+    L90 110
+    C90 104, 86 100, 82 96
+    C78 92, 76 86, 76 78
+    C76 68, 76 58, 72 52
+    L72 48
+    Z
+  "/>
+</svg>

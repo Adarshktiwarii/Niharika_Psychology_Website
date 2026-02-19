@@ -3,17 +3,36 @@
 <header class="fixed w-full z-50 transition-all duration-300 bg-transparent group" id="main-header">
   <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 text-white transition-colors duration-300 logo-link">
-      <span class="text-2xl font-serif font-bold tracking-wide">Soul Udaan</span>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bird"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/><path d="M10 18v3"/><path d="M14 17.75V21"/><path d="M7 18a6 6 0 0 0 3.84-10.61"/></svg>
+    <a href="/" class="flex items-center gap-3 text-white transition-colors duration-300 logo-link">
+      <img src="/logo.svg" alt="BrewYourBeing Logo" class="h-10 w-10 logo-img" />
+      <span class="text-2xl font-serif font-bold tracking-wide">BrewYourBeing</span>
     </a>
 
     <!-- Navigation -->
     <nav class="hidden md:flex gap-8 items-center">
-      <a href="#about" class="nav-link text-white font-medium text-lg hover:text-soul-peach transition-colors">About</a>
-      <a href="#services" class="nav-link text-white font-medium text-lg hover:text-soul-peach transition-colors">Services</a>
-      <a href="#workshops" class="nav-link text-white font-medium text-lg hover:text-soul-peach transition-colors">Workshops</a>
-      <a href="#book" class="cta-button bg-soul-indigo text-white px-5 py-2.5 rounded-sm hover:bg-opacity-90 transition-all font-medium border border-transparent">Book Now</a>
+      <a href="#about" class="nav-link text-white font-medium text-lg hover:text-brew-tan transition-colors">About</a>
+      <a href="#services" class="nav-link text-white font-medium text-lg hover:text-brew-tan transition-colors">Services</a>
+      <a href="#workshops" class="nav-link text-white font-medium text-lg hover:text-brew-tan transition-colors">Workshops</a>
+      <a href="#book" class="cta-button bg-brew-brown text-white px-5 py-2.5 rounded-sm hover:bg-brew-dark transition-all font-medium border border-transparent">Book Now</a>
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-btn" class="md:hidden text-white mobile-menu-icon z-50">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" x2="21" y1="6" y2="6"/>
+        <line x1="3" x2="21" y1="12" y2="12"/>
+        <line x1="3" x2="21" y1="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-sm shadow-lg">
+    <nav class="flex flex-col items-center gap-4 py-6">
+      <a href="#about" class="mobile-nav-link text-brew-brown font-medium text-lg hover:text-brew-light transition-colors">About</a>
+      <a href="#services" class="mobile-nav-link text-brew-brown font-medium text-lg hover:text-brew-light transition-colors">Services</a>
+      <a href="#workshops" class="mobile-nav-link text-brew-brown font-medium text-lg hover:text-brew-light transition-colors">Workshops</a>
+      <a href="#book" class="bg-brew-brown text-white px-6 py-2.5 rounded-sm hover:bg-brew-dark transition-all font-medium">Book Now</a>
     </nav>
   </div>
 </header>
@@ -22,45 +41,58 @@
   const header = document.getElementById('main-header');
   const navLinks = document.querySelectorAll('.nav-link');
   const logoLink = document.querySelector('.logo-link');
+  const logoImg = document.querySelector('.logo-img');
   const ctaButton = document.querySelector('.cta-button');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
 
   function updateHeader() {
-    // Check if scrolled OR hovering
     const isScrolled = window.scrollY > 50;
     const isHovered = header?.matches(':hover');
 
     if (isScrolled || isHovered) {
-      // White Background State
       header?.classList.add('bg-white/95', 'shadow-md');
       header?.classList.remove('bg-transparent');
       
-      // Text Colors -> Black with visible highlight
       navLinks.forEach(link => {
-        link.classList.remove('text-white', 'hover:text-soul-peach');
-        link.classList.add('text-black', 'hover:text-soul-indigo');
+        link.classList.remove('text-white', 'hover:text-brew-tan');
+        link.classList.add('text-brew-brown', 'hover:text-brew-light');
       });
       
-      // Logo Color -> Black
       logoLink?.classList.remove('text-white');
-      logoLink?.classList.add('text-black');
+      logoLink?.classList.add('text-brew-brown');
 
-      // CTA Button updates if needed (keep indigo bg, but ensure visibility)
-      // If we want it to look different on scroll, we can change it here. 
-      // Current: bg-soul-indigo text-white is good for contrast against white header.
+      mobileMenuIcon?.classList.remove('text-white');
+      mobileMenuIcon?.classList.add('text-brew-brown');
+
+      if (logoImg) logoImg.style.filter = 'none';
     } else {
-      // Transparent Background State (Top of page, no hover)
       header?.classList.remove('bg-white/95', 'shadow-md');
       header?.classList.add('bg-transparent');
       
-      // Text Colors -> White
       navLinks.forEach(link => {
-        link.classList.add('text-white', 'hover:text-soul-peach');
-        link.classList.remove('text-black', 'hover:text-soul-indigo');
+        link.classList.add('text-white', 'hover:text-brew-tan');
+        link.classList.remove('text-brew-brown', 'hover:text-brew-light');
       });
 
-      // Logo Color -> White
       logoLink?.classList.add('text-white');
-      logoLink?.classList.remove('text-black');
+      logoLink?.classList.remove('text-brew-brown');
+
+      mobileMenuIcon?.classList.add('text-white');
+      mobileMenuIcon?.classList.remove('text-brew-brown');
+
+      if (logoImg) logoImg.style.filter = 'brightness(0) invert(1)';
     }
   }
 
@@ -68,6 +100,11 @@
   header?.addEventListener('mouseenter', updateHeader);
   header?.addEventListener('mouseleave', updateHeader);
   
-  // Initial check
   updateHeader();
 </script>
+
+<style>
+  .logo-img {
+    transition: filter 0.3s;
+  }
+</style>
