@@ -38,7 +38,7 @@ const tabs = [
     content: {
       title: 'Psychological Assessment',
       description: 'Comprehensive evaluation of cognitive, emotional, and behavioral functioning to guide diagnosis, treatment planning, and personal development.',
-      items: ['Cognitive Functioning Evaluation', 'Emotional Assessment', 'Behavioral Analysis', 'Diagnosis & Treatment Planning', 'Personal Development Guidance']
+      items: ['IQ Tests', 'Projective Tests', 'Comprehensive Test Batteries', 'Diagnosis & Treatment Planning', 'Personal Development Guidance']
     }
   }
 ];
