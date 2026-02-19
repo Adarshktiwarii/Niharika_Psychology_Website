@@ -24,14 +24,31 @@ export default function BookingForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const [error, setError] = useState('');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    
-    setSubmitting(false);
-    setSubmitted(true);
+    setError('');
+
+    try {
+      const res = await fetch('https://formspree.io/f/mkovzklo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await res.json();
+        setError(data?.errors?.map(e => e.message).join(', ') || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -268,6 +285,10 @@ export default function BookingForm() {
       <p className="text-xs text-gray-400 italic">
         All information shared is kept strictly confidential. Your privacy is respected at every step.
       </p>
+
+      {error && (
+        <p className="text-red-600 text-sm bg-red-50 px-4 py-3 rounded-sm">{error}</p>
+      )}
 
       <div className="text-center pt-4">
         <button
